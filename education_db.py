@@ -2,7 +2,6 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 
-st.set_page_config(page_title = "Education Database - Numbers")
 st.header('Education Database - Numbers')
 st.subheader('SZLAMB')
 

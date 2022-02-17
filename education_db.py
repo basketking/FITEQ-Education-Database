@@ -12,8 +12,8 @@ st.subheader('Filters')
 
 ## Load Dataframe
 
-df_ref = pd.read_excel("https://github.com/basketking/FITEQ-Education-Database/blob/main/Education_database.xlsx?raw=true", sheet_name = 'Referee database')
-df_coach = pd.read_excel("https://github.com/basketking/FITEQ-Education-Database/blob/main/Education_database.xlsx?raw=true", sheet_name = 'Coach database')
+df_ref = pd.read_excel("https://github.com/basketking/FITEQ-Education-Database/blob/main/Education%20database.xlsx?raw=true", sheet_name = 'Referee database')
+df_coach = pd.read_excel("https://github.com/basketking/FITEQ-Education-Database/blob/main/Education%20database.xlsx?raw=true", sheet_name = 'Coach database')
 
 ## Create only relevant information in each table --> Continent, Nationality, Total Ref, Female Ref, Male Ref      - 
 #                                                     Continent, Nationality, Total Coach, Female Coach, Male Coach

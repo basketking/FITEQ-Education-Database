@@ -167,6 +167,7 @@ st.download_button(
 
 st.table(df_education[mask])
 
+st.rerun(minutes = 0.2)
 
 
 ## -------- Group Data by selection

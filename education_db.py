@@ -1,13 +1,14 @@
 import pandas as pd
 import streamlit as st
+import matplotlib.pyplot as plt
 from PIL import Image
 
 
 
 header1, image1 = st.columns([2,1])
-header1.header('Education Database - Numberssss')
+header1.header('Education Database - Numbers')
 image1.image("https://www.sportaccord.sport/wsbs-2022/wp-content/uploads/sites/2/2020/11/Fiteq1800x1200-e1605615045111-1024x683.png", width = None )
-st.subheader('SZLAMB')
+st.subheader('Filters')
 
 ## Load Dataframe
 
@@ -96,7 +97,19 @@ col5.markdown(f'Total Female Referees: {number_of_female_referees}')
 col6.markdown(f'Total Male Coaches: {number_of_male_coaches}')
 col7.markdown(f'Total Female Coaches: {number_of_female_coaches}')
 
+### --------- ADD SOME CHARTS 
+# CONTINENTAL REPRESENTATION
 
+labels_cont = ['Africa' , 'Asia', 'Europe', 'Pan-America', 'Oceania']
+sizes_cont = [df_education[df_education['Continent'] == 'Africa'].shape[0], 15, 20, 30, 35]
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes_cont, labels = labels_cont,)
+st.pyplot(fig1)
+
+
+
+
+## display masked table
 
 st.table(df_education[mask])
 

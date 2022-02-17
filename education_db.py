@@ -84,6 +84,17 @@ col1.metric("Total Countries", number_of_countries)
 col2.metric("Total Number of Referees", number_of_referees)
 col3.metric("Total Number of Coaches", number_of_coaches)
 
+col4, col5, col6, col7 = st.columns(4)
+number_of_male_referees = df_education[mask]['Male Referees'].sum()
+number_of_male_coaches = df_education[mask]['Male Coaches'].sum()
+number_of_female_referees = df_education[mask]['Female Referees'].sum()
+number_of_female_coaches = df_education[mask]['Female Coaches'].sum()
+
+col4.markdown(f'Total Male Referees: {number_of_male_referees}')
+col5.markdown(f'Total Female Referees: {number_of_female_referees}')
+col6.markdown(f'Total Male Coaches: {number_of_male_coaches}')
+col7.markdown(f'Total Female Coaches: {number_of_female_coaches}')
+
 
 
 st.table(df_education[mask])

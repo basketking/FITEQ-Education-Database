@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
+import numpy as np
 from PIL import Image
 
 
@@ -100,15 +101,22 @@ col7.markdown(f'Total Female Coaches: {number_of_female_coaches}')
 ### --------- ADD SOME CHARTS 
 # CONTINENTAL REPRESENTATION
 
-labels_cont = ['Africa' , 'Asia', 'Europe', 'Pan-America', 'Oceania']
+
+
+labels_cont = ['Africa', 'Asia', 'Europe', 'Pan America', 'Oceania']
 sizes_cont = [df_education[df_education['Continent'] == 'Africa'].shape[0], 
             df_education[df_education['Continent'] == 'Asia'].shape[0], 
             df_education[df_education['Continent'] == 'Europe'].shape[0], 
-            df_education[df_education['Continent'] == 'Pan-America'].shape[0], 
+            df_education[df_education['Continent'] == 'Pan America'].shape[0], 
             df_education[df_education['Continent'] == 'Oceania'].shape[0]]
 fig1, ax1 = plt.subplots()
-ax1.pie(sizes_cont, labels = labels_cont, autopct='%1.1f%%')
-st.pyplot(fig1)
+ax1.barh(np.arange(len(sizes_cont)), sizes_cont)
+ax1.set_yticklabels(['empty', 'Africa', 'Asia', 'Europe', 'Pan America', 'Oceania'])
+for i, v in enumerate(sizes_cont):
+    ax1.text(v, i, str(v) + '%', color='black', fontweight='bold')
+
+with st.expander("Percentage of people educated (referees + coaches) per continent"):
+    st.pyplot(fig1)
 
 
 

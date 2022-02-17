@@ -76,13 +76,13 @@ nf_selection = st.multiselect('National Federation',
 ## -------- FILTER DATAFRAME BASED ON SELECTION
 mask = df_education['Continent'].isin(continent_selection) & df_education['NF'].isin(nf_selection)
 
-number_of_countries, number_of_referees, number_of_coaches = st.columns(3)
+col1, col2, col3 = st.columns(3)
 number_of_countries = df_education[mask].shape[0]
 number_of_referees = df_education[mask]['Total Referees'].sum()
 number_of_coaches = df_education[mask]['Total Coaches'].sum()
-number_of_countries.metric("Total Countries", number_of_countries)
-number_of_referees.metric("Total Number of Referees", number_of_referees)
-number_of_coaches.metric("Total Number of Coaches", number_of_coaches)
+col1.metric("Total Countries", number_of_countries)
+col2.metric("Total Number of Referees", number_of_referees)
+col3.metric("Total Number of Coaches", number_of_coaches)
 
 
 

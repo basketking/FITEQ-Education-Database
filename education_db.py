@@ -93,10 +93,10 @@ number_of_male_coaches = df_education[mask]['Male Coaches'].sum()
 number_of_female_referees = df_education[mask]['Female Referees'].sum()
 number_of_female_coaches = df_education[mask]['Female Coaches'].sum()
 
-col4.markdown(f'Total Male Referees: {number_of_male_referees}')
-col5.markdown(f'Total Female Referees: {number_of_female_referees}')
-col6.markdown(f'Total Male Coaches: {number_of_male_coaches}')
-col7.markdown(f'Total Female Coaches: {number_of_female_coaches}')
+col4.markdown(f'Male Referees: {number_of_male_referees}')
+col5.markdown(f'Female Referees: {number_of_female_referees}')
+col6.markdown(f'Male Coaches: {number_of_male_coaches}')
+col7.markdown(f'Female Coaches: {number_of_female_coaches}')
 
 ### --------- ADD SOME CHARTS 
 
@@ -120,6 +120,33 @@ with st.expander("Percentage of people educated (referees + coaches) per contine
     st.pyplot(fig1)
 
 
+## TOP 10 PERFORMING COUNTRIES 
+top10_ref = df_education.sort_values(by='Total Referees', ascending = False)[0:10]
+top10_coach = df_education.sort_values(by='Total Coaches', ascending = False)[0:10]
+
+fig2, (ax1, ax2) = plt.subplots(1, 2)
+ax1.bar(top10_ref['Nationality'], top10_ref['Total Referees'])
+ax2.bar(top10_coach['Nationality'], top10_coach['Total Coaches'])
+fig2.autofmt_xdate(rotation= 90, ha= 'center')
+pps1 = ax1.bar(np.arange(len(top10_ref)), top10_ref['Total Referees'])
+for p in pps1:
+   height = p.get_height()
+   ax1.annotate('{}'.format(height),
+      xy=(p.get_x() + p.get_width() / 2, height),
+      xytext=(0, 1), # 3 points vertical offset
+      textcoords="offset points",
+      ha='center', va='bottom', size = 7)
+
+pps2 = ax2.bar(np.arange(len(top10_coach)), top10_coach['Total Coaches'])
+for p in pps2:
+   height = p.get_height()
+   ax2.annotate('{}'.format(height),
+      xy=(p.get_x() + p.get_width() / 2, height),
+      xytext=(0, 1), # 3 points vertical offset
+      textcoords="offset points",
+      ha='center', va='bottom', size = 7)
+with st.expander("Top 10 performing countries in Referee and Coach education"):
+    st.pyplot(fig2)
 
 
 ## display masked table

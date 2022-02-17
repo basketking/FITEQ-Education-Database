@@ -103,7 +103,7 @@ col7.markdown(f'Total Female Coaches: {number_of_female_coaches}')
 labels_cont = ['Africa' , 'Asia', 'Europe', 'Pan-America', 'Oceania']
 sizes_cont = [df_education[df_education['Continent'] == 'Africa'].shape[0], 15, 20, 30, 35]
 fig1, ax1 = plt.subplots()
-ax1.pie(sizes_cont, labels = labels_cont,)
+ax1.pie(sizes_cont, labels = labels_cont, autopct='%1.1f%%')
 st.pyplot(fig1)
 
 

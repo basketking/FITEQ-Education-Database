@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 
-st.experimental_rerun()
 
 header1, image1 = st.columns([2,1])
 header1.header('Education Database - Numbers')

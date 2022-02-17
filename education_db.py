@@ -99,9 +99,10 @@ col6.markdown(f'Total Male Coaches: {number_of_male_coaches}')
 col7.markdown(f'Total Female Coaches: {number_of_female_coaches}')
 
 ### --------- ADD SOME CHARTS 
+
+st.subheader('Some interesting charts')
+
 # CONTINENTAL REPRESENTATION
-
-
 
 labels_cont = ['Africa', 'Asia', 'Europe', 'Pan America', 'Oceania']
 sizes_cont = [df_education[df_education['Continent'] == 'Africa'].shape[0], 
@@ -122,6 +123,21 @@ with st.expander("Percentage of people educated (referees + coaches) per contine
 
 
 ## display masked table
+
+st.subheader('Filtered table')
+
+def convert_df(df):
+     # IMPORTANT: Cache the conversion to prevent computation on every rerun
+     return df.to_csv().encode('utf-8')
+
+csv = convert_df(df_education[mask])
+
+st.download_button(
+     label="Download table as CSV",
+     data=csv,
+     file_name='education_database.csv',
+     mime='text/csv',
+ )
 
 st.table(df_education[mask])
 

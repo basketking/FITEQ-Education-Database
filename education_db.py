@@ -101,7 +101,11 @@ col7.markdown(f'Total Female Coaches: {number_of_female_coaches}')
 # CONTINENTAL REPRESENTATION
 
 labels_cont = ['Africa' , 'Asia', 'Europe', 'Pan-America', 'Oceania']
-sizes_cont = [df_education[df_education['Continent'] == 'Africa'].shape[0], 15, 20, 30, 35]
+sizes_cont = [df_education[df_education['Continent'] == 'Africa'].shape[0], 
+            df_education[df_education['Continent'] == 'Asia'].shape[0], 
+            df_education[df_education['Continent'] == 'Europe'].shape[0], 
+            df_education[df_education['Continent'] == 'Pan-America'].shape[0], 
+            df_education[df_education['Continent'] == 'Oceania'].shape[0]]
 fig1, ax1 = plt.subplots()
 ax1.pie(sizes_cont, labels = labels_cont, autopct='%1.1f%%')
 st.pyplot(fig1)

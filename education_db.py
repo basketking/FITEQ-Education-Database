@@ -74,7 +74,7 @@ nf_selection = st.multiselect('National Federation',
 mask = df_education['Continent'].isin(continent_selection) & df_education['NF'].isin(nf_selection)
 number_of_countries = df_education[mask].shape[0]
 number_of_referees = df_education[mask]['Total Referees'].sum()
-st.markdown(f'*Number of Countries: {number_of_countries},         Number of Referees: {number_of_referees}*')
+st.metric("Total Number of Referees", number_of_referees)
 
 st.table(df_education[mask])
 

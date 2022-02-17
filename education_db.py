@@ -6,6 +6,7 @@ from PIL import Image
 
 
 st.header('Education Database - Numberssss')
+st.image("https://www.sportaccord.sport/wsbs-2022/wp-content/uploads/sites/2/2020/11/Fiteq1800x1200-e1605615045111-1024x683.png", width = None )
 st.subheader('SZLAMB')
 
 ## Load Dataframe

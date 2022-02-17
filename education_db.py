@@ -4,7 +4,7 @@ from PIL import Image
 
 
 
-header1, image1 = st.columns(2)
+header1, image1 = st.columns([2,1])
 header1.header('Education Database - Numberssss')
 image1.image("https://www.sportaccord.sport/wsbs-2022/wp-content/uploads/sites/2/2020/11/Fiteq1800x1200-e1605615045111-1024x683.png", width = None )
 st.subheader('SZLAMB')

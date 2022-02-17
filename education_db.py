@@ -2,7 +2,10 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 
-st.header('Education Database - Numbers')
+
+
+
+st.header('Education Database - Numberssss')
 st.subheader('SZLAMB')
 
 ## Load Dataframe

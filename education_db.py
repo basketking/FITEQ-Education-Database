@@ -136,12 +136,13 @@ elif radio_button =='Charts':
                     df_education[df_education['Continent'] == 'Europe'].shape[0], 
                     df_education[df_education['Continent'] == 'Pan America'].shape[0], 
                     df_education[df_education['Continent'] == 'Oceania'].shape[0]]
+
         fig1, ax1 = plt.subplots()
         ax1.barh(np.arange(len(sizes_cont)), sizes_cont)
         ax1.set_yticklabels(['empty', 'Africa', 'Asia', 'Europe', 'Pan America', 'Oceania'])
         for i, v in enumerate(sizes_cont):
             ax1.text(v, i, str(v) + '%', color='black', fontweight='bold')
-
+        st.pyplot(fig1)
 
 
 
@@ -170,6 +171,7 @@ elif radio_button =='Charts':
             xytext=(0, 1), # 3 points vertical offset
             textcoords="offset points",
             ha='center', va='bottom', size = 7)
+        st.pyplot(fig2)
 
 
 

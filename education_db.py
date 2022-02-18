@@ -55,9 +55,9 @@ df_education['NF'] = df_education['Nationality'].apply(lambda x : x in nf_list)
 df_education = df_education[['Continent', 'Nationality', 'NF', 'Total Referees', 'Total Coaches', 'Male Referees', 'Female Referees', 'Male Coaches', 'Female Coaches']]
 ## st.dataframe(df_education)
 
-st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center;} </style>', unsafe_allow_html=True)
+st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center; align-content: space-between;} </style>', unsafe_allow_html=True)
 
-st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:22px;}</style>', unsafe_allow_html=True)
+st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:4px;}</style>', unsafe_allow_html=True)
 
 
 radio_button=st.radio("",("Main Page","Charts","Priority Countries"))

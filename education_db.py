@@ -55,7 +55,7 @@ df_education['NF'] = df_education['Nationality'].apply(lambda x : x in nf_list)
 df_education = df_education[['Continent', 'Nationality', 'NF', 'Total Referees', 'Total Coaches', 'Male Referees', 'Female Referees', 'Male Coaches', 'Female Coaches']]
 ## st.dataframe(df_education)
 
-st.markdown("<h2 style='text-align: center; color: white;'>Page Selection</h2>; margin-bottom: 0px;", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: white;margin-bottom: 0px;'>Page Selection</h2>", unsafe_allow_html=True)
 
 
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center; align-content: space-between;} </style>', unsafe_allow_html=True)

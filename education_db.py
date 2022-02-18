@@ -60,7 +60,7 @@ df_education = df_education[['Continent', 'Nationality', 'NF', 'Total Referees',
 st.markdown("<h2 style='text-align: center; color: white; maring-top: 50px; margin-bottom: -50px; font-size:35px; background: radial-gradient(#EF4123, #f1ab64); border-radius: 25px; '>Page Selection</h2>", unsafe_allow_html=True)
 
 
-st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center; align-content: space-between; padding-left: 10px;} </style>', unsafe_allow_html=True)
+st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center; align-content: space-between; } </style>', unsafe_allow_html=True)
 
 st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:4px;font-size:20px;}</style>', unsafe_allow_html=True)
 
@@ -143,8 +143,7 @@ elif radio_button =='Charts':
 
         ### --------- ADD SOME CHARTS 
 
-        st.subheader('Some interesting charts')
-
+        st.markdown("<h2 style='text-align: center; color: black; font-size:20px; margin-top: 50px; margin-bottom: 50px; margin-left: 25%; background: radial-gradient(#FFFFFF, #DCDDDE); border-radius: 25px; width: 50%;'>Educated people (Referees + Coaches) percentage per continent</h2>", unsafe_allow_html=True)
         # CONTINENTAL REPRESENTATION
 
         labels_cont = ['Africa', 'Asia', 'Europe', 'Pan America', 'Oceania']
@@ -163,7 +162,10 @@ elif radio_button =='Charts':
 
 
 
-        ## TOP 10 PERFORMING COUNTRIES 
+        ## TOP 10 PERFORMING COUNTRIES
+
+        st.markdown("<h2 style='text-align: center; color: black; font-size:20px; margin-top: 50px; margin-bottom: 50px; margin-left: 25%; background: radial-gradient(#FFFFFF, #DCDDDE); border-radius: 25px; width: 50%;'>Top 10 performing countries</h2>", unsafe_allow_html=True)
+
         top10_ref = df_education.sort_values(by='Total Referees', ascending = False)[0:10]
         top10_coach = df_education.sort_values(by='Total Coaches', ascending = False)[0:10]
 
@@ -188,13 +190,66 @@ elif radio_button =='Charts':
             xytext=(0, 1), # 3 points vertical offset
             textcoords="offset points",
             ha='center', va='bottom', size = 7)
+        ax1.set_title('Referee Education')
+        ax2.set_title('Coach Education')
         st.pyplot(fig2)
 
 
+        ## TOP 10 PERFORMING COUNTRIES PER CONTINENT
+        st.markdown("<h2 style='text-align: center; color: black; font-size:20px; margin-top: 50px; margin-bottom: 50px; margin-left: 25%; background: radial-gradient(#FFFFFF, #DCDDDE); border-radius: 25px; width: 50%;'>Top 10 performing countries per continent in Referee Education</h2>", unsafe_allow_html=True)
+
+        top10_ref_africa = df_education[df_education['Continent'] == "Africa"].sort_values(by="Total Referees", ascending = False).set_index('Nationality').iloc[0:10,:]['Total Referees']
+        top10_ref_asia = df_education[df_education['Continent'] == "Asia"].sort_values(by="Total Referees", ascending = False)[0:10].set_index('Nationality').iloc[0:10,:]['Total Referees']
+        top10_ref_europe = df_education[df_education['Continent'] == "Europe"].sort_values(by="Total Referees", ascending = False)[0:10].set_index('Nationality').iloc[0:10,:]['Total Referees']
+        top10_ref_panam = df_education[df_education['Continent'] == "Pan America"].sort_values(by="Total Referees", ascending = False)[0:10].set_index('Nationality').iloc[0:10,:]['Total Referees']
+        top10_ref_oceania = df_education[df_education['Continent'] == "Oceania"].sort_values(by="Total Referees", ascending = False)[0:10].set_index('Nationality').iloc[0:10,:]['Total Referees']
+
+        st.markdown("<h2 style='text-align: center; color: white; font-size:15px; margin: auto;'>Africa</h2>", unsafe_allow_html=True)
+        st.bar_chart(top10_ref_africa)
+        st.markdown("<h2 style='text-align: center; color: white; font-size:15px; margin: auto;'>Asia</h2>", unsafe_allow_html=True)
+        st.bar_chart(top10_ref_asia)
+        st.markdown("<h2 style='text-align: center; color: white; font-size:15px; margin: auto;'>Europe</h2>", unsafe_allow_html=True)
+        st.bar_chart(top10_ref_europe)
+        st.markdown("<h2 style='text-align: center; color: white; font-size:15px; margin: auto;'>Pan America</h2>", unsafe_allow_html=True)
+        st.bar_chart(top10_ref_panam)
+        st.markdown("<h2 style='text-align: center; color: white; font-size:15px; margin: auto;'>Oceania</h2>", unsafe_allow_html=True)
+        st.bar_chart(top10_ref_oceania)
 
 
+        st.markdown("<h2 style='text-align: center; color: black; font-size:20px; margin-top: 50px; margin-bottom: 50px; margin-left: 25%; background: radial-gradient(#FFFFFF, #DCDDDE); border-radius: 25px; width: 50%;'>Top 10 performing countries per continent in Coach Education</h2>", unsafe_allow_html=True)
+
+        top10_coa_africa = df_education[df_education['Continent'] == "Africa"].sort_values(by="Total Coaches", ascending = False).set_index('Nationality').iloc[0:10,:]['Total Coaches']
+        top10_coa_asia = df_education[df_education['Continent'] == "Asia"].sort_values(by="Total Coaches", ascending = False)[0:10].set_index('Nationality').iloc[0:10,:]['Total Coaches']
+        top10_coa_europe = df_education[df_education['Continent'] == "Europe"].sort_values(by="Total Coaches", ascending = False)[0:10].set_index('Nationality').iloc[0:10,:]['Total Coaches']
+        top10_coa_panam = df_education[df_education['Continent'] == "Pan America"].sort_values(by="Total Coaches", ascending = False)[0:10].set_index('Nationality').iloc[0:10,:]['Total Coaches']
+        top10_coa_oceania = df_education[df_education['Continent'] == "Oceania"].sort_values(by="Total Coaches", ascending = False)[0:10].set_index('Nationality').iloc[0:10,:]['Total Coaches']
+
+        st.markdown("<h2 style='text-align: center; color: white; font-size:15px; margin: auto;'>Africa</h2>", unsafe_allow_html=True)
+        st.bar_chart(top10_coa_africa)
+        st.markdown("<h2 style='text-align: center; color: white; font-size:15px; margin: auto;'>Asia</h2>", unsafe_allow_html=True)
+        st.bar_chart(top10_coa_asia)
+        st.markdown("<h2 style='text-align: center; color: white; font-size:15px; margin: auto;'>Europe</h2>", unsafe_allow_html=True)
+        st.bar_chart(top10_coa_europe)
+        st.markdown("<h2 style='text-align: center; color: white; font-size:15px; margin: auto;'>Pan America</h2>", unsafe_allow_html=True)
+        st.bar_chart(top10_coa_panam)
+        st.markdown("<h2 style='text-align: center; color: white; font-size:15px; margin: auto;'>Oceania</h2>", unsafe_allow_html=True)
+        st.bar_chart(top10_coa_oceania)
 
 
+        ## MALE - FEMALE RELATION
+        
+        st.markdown("<h2 style='text-align: center; color: black; font-size:20px; margin-top: 50px; margin-bottom: 50px; margin-left: 25%; background: radial-gradient(#FFFFFF, #DCDDDE); border-radius: 25px; width: 50%;'>Male - Female Relation per continent in Referee Education</h2>", unsafe_allow_html=True)
+
+        df_continent_genders = df_education.groupby('Continent').sum()
+        df_continent_genders_ref = df_continent_genders[['Male Referees', 'Female Referees']]
+
+        st.bar_chart(df_continent_genders_ref)
+        st.markdown("<h2 style='text-align: center; color: black; font-size:20px; margin-top: 50px; margin-bottom: 50px; margin-left: 25%; background: radial-gradient(#FFFFFF, #DCDDDE); border-radius: 25px; width: 50%;'>Male - Female Relation per continent in Coach Education</h2>", unsafe_allow_html=True)
+
+        df_continent_genders = df_education.groupby('Continent').sum()
+        df_continent_genders_coach = df_continent_genders[['Male Coaches', 'Female Coaches']]
+
+        st.bar_chart(df_continent_genders_coach)
 ## -------- Group Data by selection
 
 

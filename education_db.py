@@ -55,7 +55,7 @@ df_education['NF'] = df_education['Nationality'].apply(lambda x : x in nf_list)
 df_education = df_education[['Continent', 'Nationality', 'NF', 'Total Referees', 'Total Coaches', 'Male Referees', 'Female Referees', 'Male Coaches', 'Female Coaches']]
 ## st.dataframe(df_education)
 
-radio_button = st.sidebar.radio('Page Selection', ('Main Page', 'Charts'))
+radio_button = st.radio('Page Selection', ('Main Page', 'Charts'))
 
 if radio_button == 'Main Page':
             

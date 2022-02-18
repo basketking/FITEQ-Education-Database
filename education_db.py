@@ -7,7 +7,7 @@ from PIL import Image
 
 # header1, image1 = st.columns([2,1])
 
-st.markdown("<h2 style='text-align: center; font-size:40px; margin-top: 50px; margin-bottom: 50px; width: 100%; margin: auto; font-family: fantasy; letter-spacing: .2rem;'>FITEQ EDUCATION DATABASE</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; font-size:40px; margin-top: 50px; margin-bottom: 50px; width: 100%; margin: auto; font-family: monospace; letter-spacing: .2rem;'>FITEQ EDUCATION DATABASE</h2>", unsafe_allow_html=True)
 
 #image1.image("https://www.sportaccord.sport/wsbs-2022/wp-content/uploads/sites/2/2020/11/Fiteq1800x1200-e1605615045111-1024x683.png", width = None )
 

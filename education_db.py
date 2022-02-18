@@ -5,10 +5,10 @@ import numpy as np
 from PIL import Image
 
 
-header1, image1 = st.columns([2,1])
-header1.header('Education Database - Numbers')
-image1.image("https://www.sportaccord.sport/wsbs-2022/wp-content/uploads/sites/2/2020/11/Fiteq1800x1200-e1605615045111-1024x683.png", width = None )
-st.subheader('Filters')
+# header1, image1 = st.columns([2,1])
+st.header('Education Database - Numbers')
+#image1.image("https://www.sportaccord.sport/wsbs-2022/wp-content/uploads/sites/2/2020/11/Fiteq1800x1200-e1605615045111-1024x683.png", width = None )
+
 
 ## Load Dataframe
 
@@ -55,7 +55,7 @@ df_education['NF'] = df_education['Nationality'].apply(lambda x : x in nf_list)
 df_education = df_education[['Continent', 'Nationality', 'NF', 'Total Referees', 'Total Coaches', 'Male Referees', 'Female Referees', 'Male Coaches', 'Female Coaches']]
 ## st.dataframe(df_education)
 
-st.markdown("<h2 style='text-align: center; color: white;margin-bottom: 0px;'>Page Selection</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: white;margin-bottom: -300px;'>Page Selection</h2>", unsafe_allow_html=True)
 
 
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center; align-content: space-between;} </style>', unsafe_allow_html=True)
@@ -68,7 +68,7 @@ radio_button=st.radio("",("Main Page","Charts","Priority Countries"))
 
 if radio_button == 'Main Page':
             
-
+        st.subheader('Filters')
         ## --------- CONTINENT SELECTION
 
         continent = df_education['Continent'].unique().tolist()
@@ -95,9 +95,13 @@ if radio_button == 'Main Page':
         number_of_countries = df_education[mask].shape[0]
         number_of_referees = df_education[mask]['Total Referees'].sum()
         number_of_coaches = df_education[mask]['Total Coaches'].sum()
+
+        with open('style.css') as f:
+            st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
         col1.metric("Total Countries", number_of_countries)
-        col2.metric("Total Number of Referees", number_of_referees)
-        col3.metric("Total Number of Coaches", number_of_coaches)
+        col2.metric("Total Referees", number_of_referees)
+        col3.metric("Total Coaches", number_of_coaches)
 
         col4, col5, col6, col7 = st.columns(4)
         number_of_male_referees = df_education[mask]['Male Referees'].sum()
@@ -111,8 +115,8 @@ if radio_button == 'Main Page':
         col7.markdown(f'Female Coaches: {number_of_female_coaches}')
 
                 ## display masked table
+        st.dataframe(df_education[mask].set_index('Nationality', drop = True))
 
-        st.subheader('Filtered table')
 
         def convert_df(df):
             # IMPORTANT: Cache the conversion to prevent computation on every rerun
@@ -127,7 +131,7 @@ if radio_button == 'Main Page':
             mime='text/csv',
         )
 
-        st.table(df_education[mask])
+
 
 
 elif radio_button =='Charts':

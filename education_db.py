@@ -57,12 +57,11 @@ df_education = df_education[['Continent', 'Nationality', 'NF', 'Total Referees',
 
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center;} </style>', unsafe_allow_html=True)
 
-st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:2px;}</style>', unsafe_allow_html=True)
-
-radio_button=st.radio("Page Selection",("Main Page","Charts","Priority Countries"))
+st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:22px;}</style>', unsafe_allow_html=True)
 
 
-st.radio('Page Selection', ('Main Page', 'Charts'))
+radio_button=st.radio("",("Main Page","Charts","Priority Countries"))
+
 
 if radio_button == 'Main Page':
             

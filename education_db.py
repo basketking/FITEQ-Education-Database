@@ -63,7 +63,7 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content
 st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:4px;}</style>', unsafe_allow_html=True)
 
 
-radio_button=st.radio(("Main Page","Charts","Priority Countries"))
+radio_button=st.radio(None,("Main Page","Charts","Priority Countries"))
 
 
 if radio_button == 'Main Page':

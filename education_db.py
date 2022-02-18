@@ -55,12 +55,12 @@ df_education['NF'] = df_education['Nationality'].apply(lambda x : x in nf_list)
 df_education = df_education[['Continent', 'Nationality', 'NF', 'Total Referees', 'Total Coaches', 'Male Referees', 'Female Referees', 'Male Coaches', 'Female Coaches']]
 ## st.dataframe(df_education)
 
-st.markdown("<h2 style='text-align: center; color: white;margin-bottom: -300px;'>Page Selection</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: white;margin-bottom: -250px; font-size:35px; background: radial-gradient(#EF4123, #f1ab64); border-radius: 25px; '>Page Selection</h2>", unsafe_allow_html=True)
 
 
-st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center; align-content: space-between;} </style>', unsafe_allow_html=True)
+st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center; align-content: space-between; padding-left: 10px;} </style>', unsafe_allow_html=True)
 
-st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:4px;}</style>', unsafe_allow_html=True)
+st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:4px;font-size:20px;}</style>', unsafe_allow_html=True)
 
 
 radio_button=st.radio("",("Main Page","Charts","Priority Countries"))
@@ -68,7 +68,7 @@ radio_button=st.radio("",("Main Page","Charts","Priority Countries"))
 
 if radio_button == 'Main Page':
             
-        st.subheader('Filters')
+        st.markdown("<h2 style='text-align: center; color: black; font-size:25px; background: radial-gradient(#FFFFFF, #DCDDDE); border-radius: 25px; width: 50%; margin: auto;'>Filters</h2>", unsafe_allow_html=True)
         ## --------- CONTINENT SELECTION
 
         continent = df_education['Continent'].unique().tolist()
@@ -115,6 +115,7 @@ if radio_button == 'Main Page':
         col7.markdown(f'Female Coaches: {number_of_female_coaches}')
 
                 ## display masked table
+        st.markdown("<h2 style='text-align: center; color: white;margin-top: 10px; margin-bottom: 0px;font-size:25px;'>Dataframe</h2>", unsafe_allow_html=True)
         st.dataframe(df_education[mask].set_index('Nationality', drop = True))
 
 

@@ -33,6 +33,11 @@ df_ref['Referee'] = 1
 
 df_coach['Coach'] = 1
 
+## CLEANING - Ivory coast to Ivory Coast
+
+df_ref['Nationality'].replace('Ivory coast', 'Ivory Coast',  inplace = True)
+df_coach['Nationality'].replace('Ivory coast', 'Ivory Coast', inplace = True)
+
 
 ## Group ref and coach and merge
 

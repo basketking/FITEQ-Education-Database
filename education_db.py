@@ -140,6 +140,7 @@ if radio_button == 'Main Page':
 
 elif radio_button =='Charts':
 
+    with st.expander('Continental distribution'):
 
         ### --------- ADD SOME CHARTS 
 
@@ -163,6 +164,7 @@ elif radio_button =='Charts':
 
 
         ## TOP 10 PERFORMING COUNTRIES
+    with st.expander('Top 10 Performing Countries'):
 
         st.markdown("<h2 style='text-align: center; color: black; font-size:20px; margin-top: 50px; margin-bottom: 50px; margin-left: 25%; background: radial-gradient(#FFFFFF, #DCDDDE); border-radius: 25px; width: 50%;'>Top 10 performing countries</h2>", unsafe_allow_html=True)
 
@@ -196,6 +198,9 @@ elif radio_button =='Charts':
 
 
         ## TOP 10 PERFORMING COUNTRIES PER CONTINENT
+
+    with st.expander('Top 10 performing countries by continent'):
+
         st.markdown("<h2 style='text-align: center; color: black; font-size:20px; margin-top: 50px; margin-bottom: 50px; margin-left: 25%; background: radial-gradient(#FFFFFF, #DCDDDE); border-radius: 25px; width: 50%;'>Top 10 performing countries per continent in Referee Education</h2>", unsafe_allow_html=True)
 
         top10_ref_africa = df_education[df_education['Continent'] == "Africa"].sort_values(by="Total Referees", ascending = False).set_index('Nationality').iloc[0:10,:]['Total Referees']
@@ -237,7 +242,8 @@ elif radio_button =='Charts':
 
 
         ## MALE - FEMALE RELATION
-        
+    with st.expander('Male - Female relation'):
+
         st.markdown("<h2 style='text-align: center; color: black; font-size:20px; margin-top: 50px; margin-bottom: 50px; margin-left: 25%; background: radial-gradient(#FFFFFF, #DCDDDE); border-radius: 25px; width: 50%;'>Male - Female Relation per continent in Referee Education</h2>", unsafe_allow_html=True)
 
         df_continent_genders = df_education.groupby('Continent').sum()
